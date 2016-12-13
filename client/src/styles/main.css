@@ -496,7 +496,8 @@ h1 {
   text-align: center; }
 
 .center, h1 {
-  font-weight: bold; }
+  font-weight: bold;
+  background-color: rgba(128, 128, 128, 0.3); }
 
 .hero {
   background-image: url("http://cdn-jpg.thedailymeal.net/sites/default/files/drinking_CROP.jpg");
@@ -528,7 +529,12 @@ input, .formInput {
 
 .hidden {
   color: red;
-  font-weight: bold; }
+  font-weight: bold;
+  background-color: rgba(128, 128, 128, 0.3);
+  width: 10%;
+  background-position: center;
+  margin-left: 46.5%;
+  border-radius: 15px; }
 
 .description, h4 {
   margin: 2%; }

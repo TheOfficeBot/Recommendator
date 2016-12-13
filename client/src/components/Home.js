@@ -63,15 +63,20 @@ class Home extends Component{
       price = '1,2';
     }
 
-    this.props.getDinnerListings(find, near, price)
-    this.setState({find: '', near: '', price: '', loading: true})
-
-    if(find === undefined || find === ''){
+    if(find === '' && near === ''){
       this.setState({ inputFindValid: false });
-    }
-    if(near === undefined || near === ''){
       this.setState({ inputNearValid: false });
     }
+    else if(find === undefined || find === ''){
+      this.setState({ inputFindValid: false });
+    }
+    else if(near === undefined || near === ''){
+      this.setState({ inputNearValid: false });
+    }else {
+      this.props.getDinnerListings(find, near, price)
+      this.setState({find: '', near: '', price: '', loading: true})
+    }
+
   }
 
   render () {
@@ -106,7 +111,7 @@ class Home extends Component{
             </div>
 
             <div>
-              <h3 className="center">Price: {this.state.priceRender}
+              <h3 >Price: {this.state.priceRender}
               </h3>
 
               <Slider
@@ -121,7 +126,7 @@ class Home extends Component{
             <input type="submit" value="Submit" id="btn-round2" />
           </form>
 
-          <Link to="/map"  className="btn-admin">MAP</Link>
+          {/* <Link to="/map"  className="btn-admin">MAP</Link> */}
           <Loader loading={this.state.loading}/>
         </div>
       </div>
