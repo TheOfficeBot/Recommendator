@@ -38,6 +38,7 @@ class Results  extends Component{
       		value: "",
           yourname: "",
           source: "",
+          messagesent: ""
 
     	}
     	this.handleChange = this.handleChange.bind(this)
@@ -87,10 +88,7 @@ class Results  extends Component{
         if(firstNameArr[k] === ' '){
           firstNameArr[k] = ''
         } 
-        else if(citystateArr2[k] === ','){
-          firstNameArr[k] = '+'
-          firstCleanName += firstNameArr[k]
-        }else {
+        else {
         firstCleanName += firstNameArr[k]
         }
   }
@@ -98,10 +96,7 @@ class Results  extends Component{
         if(secondNameArr[l] === ' '){
           secondNameArr[l] = ''
         } 
-        else if(citystateArr2[l] === ','){
-          secondNameArr[l] = '+'
-          secondCleanName += secondNameArr[l]
-        }else {
+        else {
         secondCleanName += secondNameArr[l]
         }
   }
@@ -115,7 +110,6 @@ class Results  extends Component{
     this.setState({yourname: event.target.value})
   }
   handleSubmit(event) {
-    	alert('A text has been sent to ' + this.state.value)
     	event.preventDefault()
     	var phone = this.state.value
       var name = this.state.yourname
@@ -143,7 +137,7 @@ class Results  extends Component{
 		  .catch(function (error) {
 		    console.log(error);
 		  })
-		this.setState({value: "", yourname: ""})
+		this.setState({value: "", yourname: "", messagesent: "A text has been sent to " + cleannumber})
   	}
   
   render () {
@@ -194,8 +188,10 @@ class Results  extends Component{
               <br/>
       				<label> Your Full Name : </label> <input className="twilioInput" type="text" value={this.state.yourname} name="yourname" onChange={this.handleNameChange}/>
               <br/>
+              <span className="submitMessage"> {this.state.messagesent} </span>
       				<button className="twilioButton" type="submit" value="Submit">Submit</button>
       				<div className="subhead"></div>
+
       			</form>
       			<h3 className="header3">So How Close Is The Bar?</h3>
       			<iframe
