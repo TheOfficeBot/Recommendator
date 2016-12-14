@@ -363,7 +363,7 @@ iframe {
 
 .twilioButton {
   background-color: #95DFFA;
-  margin-left: 240px;
+  float: right;
   margin-bottom: 20px;
   border-radius: 5px;
   padding: 6px 32px;
@@ -371,6 +371,10 @@ iframe {
   text-decoration: none;
   display: inline-block;
   font-size: 16px; }
+
+.submitMessage {
+  font-size: 11pt;
+  color: red; }
 
 .example-enter {
   opacity: 0.01; }
